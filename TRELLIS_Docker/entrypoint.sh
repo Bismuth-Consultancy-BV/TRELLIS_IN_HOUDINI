@@ -5,4 +5,11 @@ set -e  # Exit immediately if a command exits with a non-zero status
 source /opt/conda/bin/activate trellis
 
 # Pass all arguments to the container as commands
-python3 /app/image_to_3d.py "$@"
+
+# If the below script exists run it, otherwise run another
+if [ -f "/mnt/scripts/image_to_3d.py" ]; then
+    # Run the image_to_3d.py script with all arguments passed to the container
+    python3 /mnt/scripts/image_to_3d.py "$@"
+else
+    python3 /app/image_to_3d.py "$@"
+fi

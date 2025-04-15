@@ -69,7 +69,7 @@ RUN mkdir -p $TRANSFORMERS_CACHE $HF_HOME $TORCH_HOME $U2NET_HOME /app/output &&
     chown -R 1000:1000 /app_data/.cache
 
 # Copy application files
-COPY image_to_3d.py /app/image_to_3d.py
+COPY scripts/image_to_3d.py /app/image_to_3d.py
 COPY entrypoint.sh /app/entrypoint.sh
 COPY .cache /app_data/.cache
 RUN wget 'https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx' -O "${U2NET_HOME}/u2net.onnx"
