@@ -1,5 +1,8 @@
 import argparse
 import os
+import sys
+
+sys.path.append("/app")
 
 # os.environ['ATTN_BACKEND'] = 'xformers'   # Can be 'flash-attn' or 'xformers', default is 'flash-attn'
 os.environ["SPCONV_ALGO"] = "native"  # Can be 'native' or 'auto', default is 'auto'.
@@ -42,7 +45,6 @@ def main(filename):
         texture_size=1024,  # Size of the texture used for the GLB
     )
     glb.export("/mnt/data/" + filename + ".glb")
-
 
 if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser()
