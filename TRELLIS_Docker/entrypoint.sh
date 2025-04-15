@@ -13,3 +13,5 @@ if [ -f "/mnt/scripts/image_to_3d.py" ]; then
 else
     python3 /app/image_to_3d.py "$@"
 fi
+
+echo "Container has finished running."
